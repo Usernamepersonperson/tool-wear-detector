@@ -1,0 +1,13 @@
+{
+  "claim": "Sensors tell when a cutting tool is worn, instead of a fixed counter guessing.",
+  "data_label": "open data: NASA Prognostics Data Repository milling wear, 15 cutters, each held out",
+  "stats": [
+    ["0.098 mm", "wear error on unseen cutters", "accent"],
+    ["+11%", "cutting per tool, same scrap risk", "green"],
+    ["64%", "injected breakage caught at 5% FA", "amber"]
+  ],
+  "limit": "One lab milling set, no real machine, no micro tools, thresholds tuned on the same data.",
+  "alt": "Dark chart of flank wear against cutting time for one held-out cutter, with the wear-aware tool-change point and a fixed-counter point, and bars of cutting minutes and scrap risk per policy.",
+  "hashtags": ["#PredictiveMaintenance", "#CNC", "#PrecisionManufacturing", "#Machining", "#IIoT", "#OpenSource"],
+  "post": "A fixed tool-life counter changes a cutting tool too early or too late. Too early wastes tool life. Too late risks scrap, or a chipped edge in the part.\n\nI built an open-source tool-wear detector for precision machining. It reads spindle load, vibration and acoustic emission, computes plain features (RMS, kurtosis, spectral band energy, load trend), estimates flank wear with one small extra-trees model, predicts remaining life and recommends the tool change.\n\nTested on a public milling data set, 15 cutters, each one held out of training once:\n- wear error 0.098 mm, against 0.199 mm for guessing the average\n- at the same 7% scrap risk, 11% more cutting per tool than a safe per-recipe counter\n- synthetic breakage injected into real cuts: 64% caught at 5% false alarms, mild events missed\n\nWhat is not verified: a model using only cut time and recipe reaches 0.095 mm, so on this data the sensors do not yet improve the wear estimate itself. It is one lab milling set, 15 tools, no real machine, no watchmaking-scale micro tools, and thresholds were tuned on the same data.\n\nWhich signal do you trust most to decide a tool change on your machines?\n\nCode: https://github.com/Usernamepersonperson/tool-wear-detector"
+}
