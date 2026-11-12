@@ -98,4 +98,4 @@ flowchart LR
 
 ## Licence
 
-MIT, Copyright (c) 2026 Victor Bonilla. See `LICENSE`. The data set keeps its own terms (above).
+MIT, Copyright (c) 2026 VB-Builds. See `LICENSE`. The data set keeps its own terms (above).
